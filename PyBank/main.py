@@ -28,7 +28,7 @@ with open(bank_data, 'r') as csvfile:
         # sum of the profit/losses
         net_total += pl
         # find the change in profit/loss
-        change = last_pl - pl
+        change = pl - last_pl
        #save the greatest increase in profits 
         if change > greatest_in :
             greatest_in = change
@@ -38,20 +38,22 @@ with open(bank_data, 'r') as csvfile:
             greatest_de = change
             worst = str(row[0])
         #increase the change sum
-        change_sum += change
+        if last_pl != 0:
+            change_sum += change
         #set the current value as the last value
         last_pl = pl
-
-
+#calculate average change after getting all the data
+ave_change = round(change_sum/(rowcount-1))
 
 #Total number of months
-print(rowcount)
-#Total net profit/loss
-print(net_total)
-#Average change
-print(change_sum/rowcount)
-#Greatest Increase and the month it occured in
-print(great + " " + str(greatest_in))
-#greatest decrease and the month it occured in
-print(worst + " " + str(greatest_de))
+print(f"""Report
+******************
+Number of months:{rowcount}
+Net profit/loss:${net_total}
+Average change:${ave_change}
+The greatest increase occured in {great}
+It was ${greatest_in}
+The greatest decrease occured in {worst}
+It was ${greatest_de}""")
 
+output_path = os.path.join("Output", "bank_report.txt")
