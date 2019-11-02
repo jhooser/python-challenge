@@ -45,7 +45,7 @@ with open(bank_data, 'r') as csvfile:
 #calculate average change after getting all the data
 ave_change = round(change_sum/(rowcount-1))
 
-#Total number of months
+#Create the report that will be displayed in the terminal and printed to txt file
 report = f"""Report
 ******************
 Number of months:{rowcount}
@@ -55,7 +55,9 @@ The greatest increase occured in {great}
 It was ${greatest_in}
 The greatest decrease occured in {worst}
 It was ${greatest_de}"""
-
+#Print to the terminal
+print(report)
+#Create a text file and print the report on it
 file = open("Bank_Report.txt","w")
 file.write(report)
 file.close()
