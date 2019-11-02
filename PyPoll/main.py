@@ -64,8 +64,8 @@ if forerunner1 > forerunner2:
 else:
     winner = forerunner2
     winner_name = forerunner2_name
-
-print(f"""Voting Report
+#create the reporting information and format it
+report = (f"""Voting Report
 *****************************
 Total number of votes cast:{total_votes}
 The candidates voted for were:{can_list}
@@ -75,4 +75,9 @@ The candidates voted for were:{can_list}
 {can_list[3]}:{can4} votes or {per4}%
 The winner of the election is {winner_name} with {winner} votes.
 """)
-output_path = os.path.join("output", "vote_report.txt")
+#show the report on screen
+print(report)
+#make a file to print the report as a text file
+file = open("Vote_Report.txt","w")
+file.write(report)
+file.close()

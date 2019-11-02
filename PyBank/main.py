@@ -46,7 +46,7 @@ with open(bank_data, 'r') as csvfile:
 ave_change = round(change_sum/(rowcount-1))
 
 #Total number of months
-print(f"""Report
+report = f"""Report
 ******************
 Number of months:{rowcount}
 Net profit/loss:${net_total}
@@ -54,6 +54,8 @@ Average change:${ave_change}
 The greatest increase occured in {great}
 It was ${greatest_in}
 The greatest decrease occured in {worst}
-It was ${greatest_de}""")
+It was ${greatest_de}"""
 
-output_path = os.path.join("Output", "bank_report.txt")
+file = open("Bank_Report.txt","w")
+file.write(report)
+file.close()

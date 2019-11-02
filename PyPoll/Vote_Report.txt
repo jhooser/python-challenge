@@ -1,0 +1,9 @@
+Voting Report
+*****************************
+Total number of votes cast:3521001
+The candidates voted for were:['Khan', 'Correy', 'Li', "O'Tooley"]
+Khan:2218231 votes or 63%
+Correy:704200 votes or 20%
+Li:492940 votes or 14%
+O'Tooley:105630 votes or 3%
+The winner of the election is Khan with 2218231 votes.
